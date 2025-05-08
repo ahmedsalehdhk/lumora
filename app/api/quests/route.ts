@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from '@/prisma/client'
 
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -22,4 +23,13 @@ export async function POST(req: NextRequest) {
     console.error("API error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
+}
+
+
+export async function GET() {
+  const quests = await prisma.quest.findMany({
+    orderBy: { createdAt: "desc" }
+  })
+
+  return NextResponse.json(quests)
 }

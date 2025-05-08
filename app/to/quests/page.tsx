@@ -1,10 +1,11 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
 
 const Quests = () => {
 
+  const [quests, setQuests] = useState([])
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -12,6 +13,14 @@ const Quests = () => {
     complexity: "",
     repeatMode: "none"
   })
+  
+
+  // get all quests
+  useEffect(() => {
+    axios.get('/api/quests').then((res) => {
+      setQuests(res.data)
+    })
+  }, [])
 
   // create new quest function
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,6 +78,13 @@ const Quests = () => {
         </select>
         <button type='submit'>Activate Quest!</button>
       </form>
+      <ul>
+        {quests.map((quest) => 
+          <li key={quest.id}>
+            {quest.title} - {quest.category} - {quest.complexity}
+          </li>
+        )}
+      </ul>
     </div>
   )
 }
