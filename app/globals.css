@@ -9,3 +9,8 @@ html {
     padding: 2rem; 
 }
 
+/* temporary styling of form elements */
+form > * {
+    background-color: white !important;
+    padding: 0.5rem 0.5rem;
+}
