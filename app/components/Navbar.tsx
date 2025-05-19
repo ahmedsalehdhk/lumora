@@ -23,7 +23,7 @@ const Navbar = () => {
             return <Link 
             key={link.href} 
             href={link.href}
-            className={`${link.href === currentPath ? 'text-white' : 'text-black'}`}
+            className={`${link.href === currentPath ? 'text-white' : 'text-black'} hover:text-white`}
             >{link.label}</Link>
           })}
         </ul>
