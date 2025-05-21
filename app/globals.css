@@ -10,7 +10,7 @@ html {
 }
 
 /* temporary styling of form elements */
-form > * {
+input, select {
     background-color: white !important;
     padding: 0.5rem 0.5rem;
 }
