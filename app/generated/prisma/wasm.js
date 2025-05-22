@@ -120,6 +120,18 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.PlayerScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  username: 'username',
+  email: 'email',
+  password: 'password',
+  level: 'level',
+  xp: 'xp',
+  gender: 'gender'
+};
+
 exports.Prisma.QuestScalarFieldEnum = {
   id: 'id',
   createdAt: 'createdAt',
@@ -138,9 +150,13 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-
+exports.Gender = exports.$Enums.Gender = {
+  MALE: 'MALE',
+  FEMALE: 'FEMALE'
+};
 
 exports.Prisma.ModelName = {
+  Player: 'Player',
   Quest: 'Quest'
 };
 

@@ -69,7 +69,7 @@ const Quests = async () => {
         <h1 className="mb-3">All of your active quests</h1>
         <ul className="all-quests space-y-5">
           {quests.map((quest: Quest) => {
-            return <QuestCard title={quest.title} complexity={quest.complexity} repeat={quest.repeat} />
+            return <QuestCard key={quest.id} title={quest.title} complexity={quest.complexity} repeat={quest.repeat} />
           })}
         </ul>
       </div>
