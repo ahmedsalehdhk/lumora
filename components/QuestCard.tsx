@@ -67,7 +67,7 @@ const QuestCard = ({ id, title, category, difficulty, repeat }: QuestCardProps) 
               <p className='capitalize'>Category: {category.toLocaleLowerCase()}</p>
             </HoverCardContent>
           </HoverCard>
-          <Badge variant="default" className='h-fit capitalize'>{difficulty.toLocaleLowerCase()}</Badge>
+          <Badge variant="outline" className='h-fit capitalize'>{difficulty.toLocaleLowerCase()}</Badge>
         </div>
         <p className="capitalize text-sm">{repeatMsg}</p>
         <h1 className="font-bold text-lg">{title}</h1>

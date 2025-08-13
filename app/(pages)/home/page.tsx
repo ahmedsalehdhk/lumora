@@ -1,12 +1,20 @@
 import React from "react";
 import goku from "@/public/assets/goku.gif";
 import Image from "next/image";
+import { prisma } from "@/lib/prisma";
 
 // Components
 import SkillStat from "@/components/SkillStat";
 import { Progress } from "@/components/ui/progress";
 
-const Home = () => {
+const Home = async () => {
+
+  const quests = await prisma.quest.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
   return (
     <div className="h-full flex flex-col">
       <h1 className="text-lg md:text-2xl font-bold mb-5 md:mb-10">Home</h1>

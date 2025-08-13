@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "GROW - Gamify your life",
+  title: "Lumora - Gamify your life",
   description: "Gamification of life",
 };
 
