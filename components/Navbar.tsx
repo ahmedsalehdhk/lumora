@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="footer flex items-center md:gap-3">
         <div className="user-icon h-12 w-12 rounded-lg cursor-pointer bg-gray-600"></div>
         <div className="name-logout">
-          <h1 className='hidden md:block font-medium cursor-pointer'>Saleh Ahmed</h1>
+          <h1 className='hidden md:block font-medium cursor-pointer'>Jennifer Lawrence</h1>
           <Link href='/'><h1 className='hidden md:block text-neutral-400 hover:text-black transition-colors text-sm cursor-pointer'>Logout</h1></Link>
         </div>
       </div>

@@ -1,15 +1,11 @@
+"use client";
+
 import React from "react";
 import { QuestCategory, QuestDifficulty, QuestRepeat } from "@prisma/client";
 import Image from "next/image";
 
 // Components
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 type QuestCardProps = {
   id: string;
@@ -20,7 +16,6 @@ type QuestCardProps = {
 };
 
 const QuestCard = ({ id, title, category, difficulty, repeat }: QuestCardProps) => {
-
   const categoryImages: Record<string, string> = {
     LEARNING: "/assets/questCard/brain.png",
     FITNESS: "/assets/questCard/running.png",
@@ -34,51 +29,60 @@ const QuestCard = ({ id, title, category, difficulty, repeat }: QuestCardProps) 
   };
   const imageSrc = categoryImages[category] ?? "/assets/questCard/cubes.png";
 
-  let repeatMsg = ''
+  let repeatMsg = "";
   switch (repeat) {
-    case 'NEVER':
-      repeatMsg = 'Just this once'
+    case "NEVER":
+      repeatMsg = "Just this once";
       break;
-    case 'DAILY':
-      repeatMsg = 'Everyday'
+    case "DAILY":
+      repeatMsg = "Everyday";
       break;
-    case 'WEEKLY':
-      repeatMsg = 'Every week'
+    case "WEEKLY":
+      repeatMsg = "Every week";
       break;
-    case 'MONTHLY':
-      repeatMsg = 'Every month'
+    case "MONTHLY":
+      repeatMsg = "Every month";
       break;
-    case 'YEARLY':
-      repeatMsg = 'Once every year'
+    case "YEARLY":
+      repeatMsg = "Once every year";
       break;
     default:
-      repeatMsg = 'No Match'
+      repeatMsg = "No Match";
       break;
   }
 
+  const handleTaskComplete = () => {
+    console.log("Task completed");
+  };
+
+  const handleTaskAbandon = () => {
+    console.log("Task Abandoned");
+  };
+
   return (
-    <div className="flex flex-col justify-between rounded-lg h-72 w-56 px-5 py-6 shadow-sm bg-white">
-      <div className="content-top flex flex-col justify-between">
-        <div className="icon-header flex justify-between">
-          <HoverCard>
-            <HoverCardTrigger className='mb-3'>
-              <Image height={32} width={32} src={imageSrc} alt={category} /></HoverCardTrigger>
-            <HoverCardContent>
-              <p className='capitalize'>Category: {category.toLocaleLowerCase()}</p>
-            </HoverCardContent>
-          </HoverCard>
-          <Badge variant="outline" className='h-fit capitalize'>{difficulty.toLocaleLowerCase()}</Badge>
-        </div>
-        <p className="capitalize text-sm">{repeatMsg}</p>
-        <h1 className="font-bold text-lg">{title}</h1>
+    <div className="flex items-center gap-5 px-3 py-4 rounded-xl border border-transparent hover:border-neutral-200 transition-all">
+      <div className="image-container p-2 rounded-lg bg-neutral-100">
+        <Image height={32} width={32} src={imageSrc} alt={category} />
       </div>
-      <div className="content-bottom flex justify-between gap-2">
-        <Button variant="ghost" className='block w-fit hover:bg-red-500 px-2'>Abandon</Button>
-        <Button variant="default" className='block w-fit px-2'>Completed</Button>
+      <div className="content flex-1 flex justify-between items-start">
+        <div className="content-left">
+          <h1 className="font-medium capitalize text-">{title}</h1>
+          <p className="capitalize text-sm text-neutral-400">{repeatMsg}</p>
+        </div>
+        <div className="content-right">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-3xl leading-1">...</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Quest done?</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleTaskComplete}>Complete</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleTaskAbandon}>Abandon</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default QuestCard;

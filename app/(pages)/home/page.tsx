@@ -1,11 +1,12 @@
 import React from "react";
-import goku from "@/public/assets/goku.gif";
+import girl from "@/public/assets/girl.png";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 
 // Components
 import SkillStat from "@/components/SkillStat";
 import { Progress } from "@/components/ui/progress";
+import Header from "@/components/Header";
 
 const Home = async () => {
 
@@ -17,21 +18,25 @@ const Home = async () => {
 
   return (
     <div className="h-full flex flex-col">
-      <h1 className="text-lg md:text-2xl font-bold mb-5 md:mb-10">Home</h1>
+      <Header />
       <div className="home-content-container flex flex-col md:flex-row flex-1 gap-5">
         <div className="content-left flex flex-2 md:flex-3 flex-col gap-5 order-2 md:order-1">
-          <div className="hidden md:block md:flex-1 rounded-lg px-10 py-6 bg-white">Calendar</div>
-          <div className="flex-1 rounded-lg px-10 py-6 bg-white">Main</div>
+          <div className=" rounded-lg px-10 py-6 bg-white">
+            <h1 className="italic">"Believe you can and you're halfway there." - Theodore Roosevelt</h1>
+          </div>
+          <div className="flex-1 rounded-lg px-10 py-6 bg-white">
+            <h1>Here is a list of your quests, sorted by relevance</h1>
+          </div>
         </div>
         <div className="content-right flex flex-3 md:flex-2 flex-col gap-5 order-1 md:order-2">
           <div className="player-and-stats flex-5 rounded-lg p-8 md:px-10 md:py-12 flex flex-col justify-between bg-white">
             <div className="header flex items-center font-bold gap-3">
-              <h1 className="text-2xl">Goku</h1>
+              <h1 className="text-2xl">Jennifer</h1>
               <h2 className="px-2 py-0.5 text-sm rounded-sm bg-black text-white">Lvl 95</h2>
             </div>
             <p className="description text-neutral-400 text-sm mb-3">Marketing and sales executive at Alliance Properties Ltd</p>
             <hr className="border-neutral-200" />
-            <Image src={goku} alt="goku" className="w-64 self-center" />
+            <Image src={girl} alt="girl" className="w-1/3 self-center" />
             <ul className="stats flex gap-3">
               <div className="col-1 flex-1 space-y-1">
                 <SkillStat type="Discipline" exp={69} />
