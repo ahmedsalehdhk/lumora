@@ -124,6 +124,12 @@
 }
 
 .nav-link-items {
-  @apply px-2 py-4 w-full flex items-center gap-4 rounded-lg cursor-pointer font-medium text-neutral-400 hover:text-black transition-colors hover:bg-[#D2E5EF];
+  @apply px-3 py-4 w-full flex items-center gap-3 rounded-sm cursor-pointer font-medium text-neutral-400 hover:text-black transition-colors hover:bg-[#D2E5EF];
 }
+
+.active-link-style {
+  @apply px-3 py-4 w-full flex items-center gap-3 rounded-sm cursor-pointer font-medium text-black transition-colors bg-[#D2E5EF];
+}
+
+
 

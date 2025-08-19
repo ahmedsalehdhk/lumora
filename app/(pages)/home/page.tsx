@@ -9,56 +9,62 @@ import { Progress } from "@/components/ui/progress";
 import Header from "@/components/Header";
 
 const Home = async () => {
-
   const quests = await prisma.quest.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   return (
-    <div className="h-full flex flex-col">
-      <Header />
-      <div className="home-content-container flex flex-col md:flex-row flex-1 gap-5">
-        <div className="content-left flex flex-2 md:flex-3 flex-col gap-5 order-2 md:order-1">
-          <div className=" rounded-lg px-10 py-6 bg-white">
-            <h1 className="italic">"Believe you can and you're halfway there." - Theodore Roosevelt</h1>
-          </div>
-          <div className="flex-1 rounded-lg px-10 py-6 bg-white">
-            <h1>Here is a list of your quests, sorted by relevance</h1>
-          </div>
-        </div>
-        <div className="content-right flex flex-3 md:flex-2 flex-col gap-5 order-1 md:order-2">
-          <div className="player-and-stats flex-5 rounded-lg p-8 md:px-10 md:py-12 flex flex-col justify-between bg-white">
-            <div className="header flex items-center font-bold gap-3">
-              <h1 className="text-2xl">Jennifer</h1>
-              <h2 className="px-2 py-0.5 text-sm rounded-sm bg-black text-white">Lvl 95</h2>
-            </div>
-            <p className="description text-neutral-400 text-sm mb-3">Marketing and sales executive at Alliance Properties Ltd</p>
-            <hr className="border-neutral-200" />
-            <Image src={girl} alt="girl" className="w-1/3 self-center" />
-            <ul className="stats flex gap-3">
-              <div className="col-1 flex-1 space-y-1">
-                <SkillStat type="Discipline" exp={69} />
-                <SkillStat type="Fitness" exp={89} />
-                <SkillStat type="Satisfaction" exp={61} />
-              </div>
-              <div className="col-2 flex-1 space-y-1">
-                <SkillStat type="Creativity" exp={41} />
-                <SkillStat type="Intelligence" exp={37} />
-                <SkillStat type="Charisma" exp={3} />
-              </div>
-            </ul>
-          </div>
-          <div className="exp-bar flex-2 rounded-lg px-10 py-6 bg-white">
-            <h1 className="mb-3">Reach level 96 in <span className="font-bold">{100-30} EXP</span></h1>
-            <div className="flex items-center justify-between gap-1">
-              <Progress value={100-30} className="h-7" />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="">
+      HOME
     </div>
+    // <div className="h-full flex flex-col">
+    //   <Header />
+    //   <div className="home-content-container flex flex-col md:flex-row flex-1 gap-3">
+    //     <div className="content-left flex flex-2 md:flex-3 flex-col gap-3 order-2 md:order-1">
+    //       <div className="rounded-sm p-6 bg-white">
+    //         <h1 className="italic">"Believe you can and you're halfway there." - Theodore Roosevelt</h1>
+    //       </div>
+    //       <div className="flex-1 rounded-sm p-6 md:px-8 md:py-10 bg-white">
+    //         <h1>Here is a list of your quests, sorted by relevance</h1>
+    //       </div>
+    //     </div>
+    //     <div className="content-right flex flex-3 md:flex-2 flex-col gap-3 order-1 md:order-2">
+    //       <div className="player-and-stats flex-1 rounded-sm p-6 flex flex-col justify-between bg-white">
+    //         <div className="">
+    //           <div className="header flex items-center font-bold gap-1.5">
+    //             <h1 className="text-xl">Jennifer</h1>
+    //             <h2 className="px-2 py-0.5 text-xs rounded-sm bg-black text-white">Lvl 95</h2>
+    //           </div>
+    //           <p className="description text-neutral-400 text-sm mb-1">Marketing and sales executive at Alliance Properties Ltd</p>
+    //           <hr className="border-neutral-200 mb-1" />
+    //         </div>
+    //         <Image src={girl} alt="girl" className="self-center" />
+    //         <ul className="stats flex gap-3">
+    //           <div className="col-1 flex-1 space-y-1">
+    //             <SkillStat type="Discipline" exp={69} />
+    //             <SkillStat type="Fitness" exp={89} />
+    //             <SkillStat type="Satisfaction" exp={61} />
+    //           </div>
+    //           <div className="col-2 flex-1 space-y-1">
+    //             <SkillStat type="Creativity" exp={41} />
+    //             <SkillStat type="Intelligence" exp={37} />
+    //             <SkillStat type="Charisma" exp={3} />
+    //           </div>
+    //         </ul>
+    //       </div>
+    //       <div className="exp-bar rounded-sm p-6 bg-white">
+    //         <h1 className="mb-3">
+    //           Reach level 96 in <span className="font-bold">{100 - 30} EXP</span>
+    //         </h1>
+    //         <div className="flex items-center justify-between gap-1">
+    //           <Progress value={100 - 30} className="h-5" />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
