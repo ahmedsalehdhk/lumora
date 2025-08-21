@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} w-screen lg:h-screen flex flex-col lg:flex-row relative bg-[#F3F3F3]`}>
         <Navbar />
-        <main className="bg-amber-60 lg:flex-1 px-6 py-8">{children}</main>
+        <main className="bg-amber-60 lg:flex-1 px-5 lg:px-6 py-8">{children}</main>
       </body>
     </html>
   );
