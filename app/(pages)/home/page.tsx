@@ -37,8 +37,8 @@ const Home = async () => {
               <p className="description text-neutral-400 text-sm mb-1">Marketing and sales executive at Alliance Properties Ltd</p>
               <hr className="border-neutral-200 mb-1" />
             </div>
-            <div className="image-container h-32 flex justify-center items-center contain p-3">
-              {/* <Image src={goku} alt="goku" className="" /> */}
+            <div className="image-container flex justify-center items-center p-3">
+              <Image src={goku} alt="goku" className="w-1/2" />
             </div>
             <ul className="stats flex gap-3">
               <div className="col-1 flex-1 space-y-1">

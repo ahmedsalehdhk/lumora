@@ -21,7 +21,7 @@ const Navbar = () => {
   const pathname = usePathname()
 
   return (
-    <nav className='w-screen lg:w-72 sticky top-0 left-0 lg:static px-6 py-8 flex lg:flex-col justify-between items-center lg:items-baseline gap-1 bg-white'>
+    <nav className='w-screen lg:w-72 sticky top-0 left-0 lg:static px-6 py-8 flex lg:flex-col justify-between items-center lg:items-baseline gap-1 shadow-sm bg-white'>
       <div className="w-full">
         <div className={`${bebasNueu.className} text-2xl lg:text-4xl cursor-pointer lg:mb-10`}>Lumora</div>
         <div className="nav-links hidden lg:flex flex-col gap-2 w-full">

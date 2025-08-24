@@ -3,9 +3,9 @@ import { prisma } from "@/lib/prisma";
 
 // Componenets
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import QuestCard from "@/components/QuestCard";
 import Header from "@/components/Header";
 import NewQuestForm from "@/components/NewQuestForm";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const Quests = async () => {
   const quests = await prisma.quest.findMany({
@@ -33,13 +33,32 @@ const Quests = async () => {
             </Dialog>
           </div>
           <div className="flex flex-col gap-3">
-            {quests.map((quest) => (
-              <QuestCard key={quest.id} id={quest.id} title={quest.title} category={quest.category} difficulty={quest.difficulty} repeat={quest.repeat} />
-            ))}
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">QUEST</TableHead>
+                  <TableHead>CATEGORY</TableHead>
+                  <TableHead>DIFFICULTY</TableHead>
+                  <TableHead>REPEATS</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {quests.map((quest) => {
+                  return (
+                    <TableRow>
+                      <TableCell className="font-medium capitalize">{quest.title}</TableCell>
+                      <TableCell className="">{quest.category}</TableCell>
+                      <TableCell>{quest.difficulty}</TableCell>
+                      <TableCell className="">{quest.repeat}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
